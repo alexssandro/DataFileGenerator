@@ -5,11 +5,10 @@ using System.Text;
 
 namespace DataFileGenerator
 {
-    internal class CsvOps<T, TMap>
+    internal static class CsvOps<T>
         where T : class
-        where TMap : ClassMap<T>
     {
-        public void WriteCSVFile(string path, List<T> collection)
+        public static void WriteCSVFile(string path, List<T> collection)
         {
             using StreamWriter sw = new(path, false, new UTF8Encoding(true));
             using CsvWriter cw = new(sw, new CultureInfo("en-US"));
@@ -22,7 +21,7 @@ namespace DataFileGenerator
             }
         }
 
-        public List<T> ReadCSVFile(string location)
+        public static List<T> ReadCSVFile(string location)
         {
             using var reader = new StreamReader(location, Encoding.Default);
             var configuration = new CsvConfiguration(new CultureInfo("en-US"));

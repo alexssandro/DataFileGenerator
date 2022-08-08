@@ -24,4 +24,4 @@ if (Directory.Exists(directory))
     Directory.CreateDirectory(directory);
 
 //var profiles = CsvOps<Profile>.ReadCSVFile(@$"C:\Users\{Environment.UserName}\source\flatfile.csv");
-CsvOps<Profile>.WriteCSVFile(@$"{directory}\flatfile.csv", data);
+CsvOps<Profile>.WriteCSVFile(@$"{directory}\ff_{DateTime.Now.Ticks}.csv", data);

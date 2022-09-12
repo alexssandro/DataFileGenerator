@@ -2,6 +2,9 @@
 using DataFileGenerator;
 using System.Text.Json;
 
+string[] lifeCycleStage = { "Subscriber", "Lead", "Opportunity", "Customer" };
+string[] iceCreamFlavors = { "Vanilla", "Chocolate", "Coffee", "Mint Chocolate Chip" };
+
 var data = new Faker<Profile>("en_US")
     .RuleFor(p => p.Id, p => p.Random.Guid().ToString())
     .RuleFor(p => p.FirstName, p => p.Person.FirstName)
@@ -11,6 +14,9 @@ var data = new Faker<Profile>("en_US")
     .RuleFor(p => p.City, p => p.Address.City())
     .RuleFor(p => p.Country, p => p.Address.Country())
     .RuleFor(p => p.ZipCode, p => p.Address.ZipCode())
+    .RuleFor(p => p.LifeCycleStage, p => p.PickRandom(lifeCycleStage))
+    .RuleFor(p => p.ContactOwner, p => p.Person.Email)
+    .RuleFor(p => p.FavoriteIceCreamFlavor, p => p.PickRandom(iceCreamFlavors))
     .Generate(40);
 
 foreach (var item in data)

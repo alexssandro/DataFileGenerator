@@ -24,10 +24,11 @@ foreach (var item in data)
     Console.WriteLine(JsonSerializer.Serialize(item));
 }
 
-string directory = @$"C:\Users\{Environment.UserName}\source";
+//string directory = @$"C:\Users\{Environment.UserName}\desktop";
+string directory = @$"C:\GeneratedData";
 
-if (Directory.Exists(directory))
+if (!Directory.Exists(directory))
     Directory.CreateDirectory(directory);
 
 //var profiles = CsvOps<Profile>.ReadCSVFile(@$"C:\Users\{Environment.UserName}\source\flatfile.csv");
-CsvOps<Profile>.WriteCSVFile(@$"{directory}\ff_{DateTime.Now.Ticks}.csv", data);
+CsvOps<Profile>.WriteCSVFile(@$"{directory}\data_{DateTime.Now.Ticks}.csv", data);

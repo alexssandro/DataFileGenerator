@@ -17,6 +17,7 @@ var data = new Faker<Profile>("en_US")
     .RuleFor(p => p.LifeCycleStage, p => p.PickRandom(lifeCycleStage))
     .RuleFor(p => p.ContactOwner, p => p.Person.Email)
     .RuleFor(p => p.FavoriteIceCreamFlavor, p => p.PickRandom(iceCreamFlavors))
+    .RuleFor(p => p.PhoneNumber, p => p.Phone.PhoneNumber("###-###-####"))
     .Generate(40);
 
 foreach (var item in data)

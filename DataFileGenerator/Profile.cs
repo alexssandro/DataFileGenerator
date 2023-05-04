@@ -8,6 +8,7 @@ namespace DataFileGenerator
         public string FirstName { get; set; }
         public string LastName { get; set; }
         public string FullName => $"{FirstName} {LastName}";
+
         [JsonPropertyName("Email Address")]
         public string Email { get; set; }
         public string Address { get; set; }
@@ -18,5 +19,6 @@ namespace DataFileGenerator
         public string ContactOwner { get; set; }
         public string FavoriteIceCreamFlavor { get; set; }
         public string PhoneNumber { get; set; }
+        public string JobTitle { get; set; }
     }
 }
